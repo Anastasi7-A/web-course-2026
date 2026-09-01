@@ -1,9 +1,9 @@
 # Web Course 2026 
  
-- **ФИО:** Медведева Анастасия 
-- **Группа:** 5  
+- Medvedeva Anastasia 
+- Group┬а: 5  
  
-## Папки 
+Folders: 
 - task0 
 - task1 
 - task2 
