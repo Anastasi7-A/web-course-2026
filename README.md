@@ -1,2 +1,23 @@
-# web-course-2026
-ĞœĞµĞ´Ğ²ĞµĞ´ĞµĞ²Ğ° ĞĞ½Ğ°ÑÑ‚Ğ°ÑĞ¸Ñ
+# Web Course 2026 
+ 
+- **”ˆ:** Œ¥¤¢¥¤¥¢  €­ áâ á¨ï 
+- **ƒàã¯¯ :** 5  
+ 
+##  ¯ª¨ 
+- task0 
+- task1 
+- task2 
+- task3 
+- task4 
+- task5 
+- task6 
+- task7 
+- task8 
+- task9 
+- task10 
+- task11 
+- task12 
+- task13 
+- task14 
+- task15 
+- task16 
