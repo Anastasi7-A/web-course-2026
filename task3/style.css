@@ -20,5 +20,4 @@ body { font-family: sans-serif; background: #f4f4f9; padding: 20px; }
 
 .delete-btn { background: #dc3545; color: #fff; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer; }
 
-/* Для скрытия через фильтры */
 .hidden { display: none; }
