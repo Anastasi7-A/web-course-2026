@@ -46,7 +46,6 @@ function render() {
     const activeCount = tasks.length - completedCount;
     counterEl.textContent = `Осталось: ${activeCount}, Выполнено: ${completedCount}`;
 
-    // Очищаем список
     listEl.innerHTML = '';
 
     const visibleTasks = tasks.filter(task => {
