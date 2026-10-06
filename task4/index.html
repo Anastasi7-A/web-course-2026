@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Быки и Коровы</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <h1>Быки и Коровы</h1>
+        
+        <div class="controls">
+            <input type="text" id="guess-input" maxlength="4" placeholder="Введите 4 цифры" autocomplete="off">
+            <button id="check-btn">Проверить</button>
+            <button id="new-game-btn" class="secondary">Новая игра</button>
+        </div>
+
+        <div class="stats">
+            <span>Попыток: <strong id="attempts-count">0</strong></span>
+        </div>
+
+        <div id="message" class="message"></div>
+
+        <h3>История попыток:</h3>
+        <ul id="history-list" class="history-list"></ul>
+    </div>
+
+    <script src="script.js" defer></script>
+</body>
+</html>
