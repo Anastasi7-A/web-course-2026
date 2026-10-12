@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simon Says</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <h1>Simon Says</h1>
+
+        <div class="info-panel">
+            <div id="level-display">Уровень: 0</div>
+            <div id="message-display"></div>
+        </div>
+
+        <div class="board">
+            <button class="btn btn-green"  data-index="0"></button>
+            <button class="btn btn-red"    data-index="1"></button>
+            <button class="btn btn-yellow" data-index="2"></button>
+            <button class="btn btn-blue"   data-index="3"></button>
+        </div>
+
+        <button id="start-btn">Старт</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

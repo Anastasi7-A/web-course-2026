@@ -1,0 +1,118 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    color: #ecf0f1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.game-container {
+    text-align: center;
+    background: rgba(0, 0, 0, 0.35);
+    padding: 30px 40px;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(6px);
+}
+
+h1 {
+    margin: 0 0 20px;
+    color: #f1c40f;
+    letter-spacing: 2px;
+}
+
+.info-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px; 
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+    min-height: 60px;
+    padding: 0 10px;
+}
+
+#level-display {
+    font-weight: bold;
+    color: #ecf0f1;
+}
+
+#message-display {
+    color: #e74c3c;
+    font-weight: bold;
+    min-height: 24px;
+}
+
+#level-display {
+    font-weight: bold;
+}
+
+#message-display {
+    color: #e74c3c;
+    font-weight: bold;
+    min-width: 200px;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 15px;
+    width: 340px;
+    height: 340px;
+    margin: 0 auto 25px;
+}
+
+.btn {
+    border: none;
+    border-radius: 18px;
+    cursor: pointer;
+    transition: transform 0.15s ease, opacity 0.15s ease, box-shadow 0.15s ease;
+    opacity: 0.55;
+    outline: none;
+}
+
+.btn:disabled {
+    cursor: not-allowed;
+}
+
+.btn-green  { background-color: #2ecc71; }
+.btn-red    { background-color: #e74c3c; }
+.btn-yellow { background-color: #f1c40f; }
+.btn-blue   { background-color: #3498db; }
+
+.btn.active {
+    opacity: 1;
+    transform: scale(0.95);
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.7);
+}
+
+#start-btn {
+    padding: 12px 45px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    background-color: #9b59b6;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    letter-spacing: 1px;
+    transition: background 0.2s, transform 0.1s;
+}
+
+#start-btn:hover:not(:disabled) {
+    background-color: #8e44ad;
+    transform: translateY(-2px);
+}
+
+#start-btn:disabled {
+    background-color: #7f8c8d;
+    cursor: not-allowed;
+}
