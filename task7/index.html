@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лента постов</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <h1>Лента постов</h1>
+            <div class="search-container">
+                <input 
+                    type="text" 
+                    id="searchInput" 
+                    class="search-input" 
+                    placeholder="Поиск по заголовку..."
+                >
+            </div>
+            <div id="postsCount" class="posts-count">Загружено: 0 / 100</div>
+        </header>
+
+        <main id="postsContainer" class="posts-container">
+        </main>
+
+        <div id="loader" class="loader hidden">Загрузка...</div>
+        <div id="endMessage" class="end-message hidden">Больше постов нет</div>
+        <div id="errorMessage" class="error-message hidden"></div>
+
+        <div id="scrollTrigger" class="scroll-trigger"></div>
+    </div>
+
+    <script src="post-model.js"></script>
+    <script src="post-view.js"></script>
+    <script src="post-controller.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
