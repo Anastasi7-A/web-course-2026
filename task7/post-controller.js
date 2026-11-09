@@ -1,10 +1,11 @@
 class PostController {
     constructor(model, view) {
         this.model = model;
-        this.view = view;
-        this.observer = null;
-        this.searchTimeout = null; 
-        this.isSearchActive = false;
+            this.view = view;
+            this.observer = null;
+            this.searchTimeout = null;
+            this.isSearchActive = false;
+            this.searchDelayAbort = null;
     }
 
     async init() {
@@ -36,6 +37,8 @@ class PostController {
     async loadMorePosts() {
 
         if (this.isSearchActive || !this.model.hasMorePosts()) return;
+
+
 
         try {
             this.view.hideError();
@@ -86,19 +89,51 @@ class PostController {
         });
     }
 
-    handleSearch(query) {
-        this.model.setSearchQuery(query);
-        this.isSearchActive = query.trim().length > 0;
 
+    async handleSearch(query) {
+        this.model.setSearchQuery(query);
+        
+        if (query.trim().length < 3) {
+            this.view.showLoader();
+
+            const abortController = new AbortController();
+            this.searchDelayAbort = abortController;
+            
+            try {
+                await new Promise((resolve, reject) => {
+                    const timer = setTimeout(() => resolve(), 3000);
+                    abortController.signal.addEventListener('abort', () => {
+                        clearTimeout(timer);
+                        reject(new Error('Отменено'));
+                    });
+                });
+            } catch (e) {
+               
+                return;
+            }
+            
+            this.view.hideLoader();
+            this.view.rerenderPosts(this.model.posts);
+            this.view.showSearchHint();
+            this.isSearchActive = false;
+            this.checkEndCondition();
+            return;
+    }
+
+        if (this.searchDelayAbort) {
+            this.searchDelayAbort.abort();
+            this.searchDelayAbort = null;
+        }
+        
+        this.view.hideLoader();
+        this.isSearchActive = true;
         const filteredPosts = this.model.getFilteredPosts();
         this.view.rerenderPosts(filteredPosts);
+        this.view.hideSearchHint();
+        this.view.hideEndMessage();
+}
 
-        if (this.isSearchActive) {
-            this.view.hideEndMessage();
-        } else {
-            this.checkEndCondition();
-        }
-    }
+
 
     updateUI() {
         this.view.updatePostsCount(

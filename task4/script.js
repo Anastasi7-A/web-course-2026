@@ -1,4 +1,6 @@
-const state = {
+function Main(){
+
+    let state = {
     secretNumber: '',
     history: [], 
     attempts: 0,
@@ -12,9 +14,24 @@ const attemptsCountEl = document.getElementById('attempts-count');
 const messageEl = document.getElementById('message');
 const historyListEl = document.getElementById('history-list');
 
+checkBtnEl.addEventListener('click', handleCheck);
+newGameBtnEl.addEventListener('click', handleNewGame);
+
+inputEl.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+        handleCheck(state, inputEl, checkBtnEl, messageEl, historyListEl, attemptsCountEl);
+    }
+});
+
+handleNewGame(state, inputEl, checkBtnEl, messageEl, historyListEl, attemptsCountEl);
+
+
+}
+
+
 
 function generateSecretNumber() {
-    const digits = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+    const digits = [0, 1, 2, 3, 4, 5, 6, 7,  8, 9];
 
     for (let i = digits.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -62,7 +79,7 @@ function pluralize(count, one, two, five) {
     return five;
 }
 
-function render() {
+function render(state, inputEl, checkBtnEl, messageEl, historyListEl, attemptsCountEl) {
 
     attemptsCountEl.textContent = state.attempts;
 
@@ -93,7 +110,7 @@ function render() {
     }
 }
 
-function handleCheck() {
+function handleCheck(state, inputEl, checkBtnEl, messageEl, historyListEl, attemptsCountEl) {
     if (state.isGameOver) return;
 
     const guess = inputEl.value.trim();
@@ -118,10 +135,10 @@ function handleCheck() {
     }
 
     inputEl.value = '';
-    render();
+    render(state, inputEl, checkBtnEl, messageEl, historyListEl, attemptsCountEl);
 }
 
-function handleNewGame() {
+function handleNewGame(state, inputEl, checkBtnEl, messageEl, historyListEl, attemptsCountEl) {
 
     state.secretNumber = generateSecretNumber();
     state.history = [];
@@ -132,19 +149,9 @@ function handleNewGame() {
     messageEl.textContent = '';
     messageEl.className = 'message';
 
-    render();
+    render(state, inputEl, checkBtnEl, messageEl, historyListEl, attemptsCountEl);
 
     inputEl.focus();
 }
 
-
-checkBtnEl.addEventListener('click', handleCheck);
-newGameBtnEl.addEventListener('click', handleNewGame);
-
-inputEl.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter') {
-        handleCheck();
-    }
-});
-
-handleNewGame();
+Main()

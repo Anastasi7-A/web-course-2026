@@ -15,6 +15,8 @@ class PostModel {
 
         this.isLoading = true;
 
+
+
         try {
             const response = await fetch(
                 `${this.apiUrl}?_page=${this.currentPage}&_limit=${this.limit}`
