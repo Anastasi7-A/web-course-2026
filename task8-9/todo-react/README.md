@@ -16,3 +16,9 @@ npm run dev
 - src/App.jsx — главный компонент, хранит состояние
 - src/components/ — дочерние компоненты (TodoForm, TodoList, TodoItem, Filters, Stats, SortControls)
 - Оптимизации: TodoItem обёрнут в memo, обработчики в useCallback, вычисления в useMemo
+
+## Оптимизации (Лабораторная 9)
+- `React.memo` на компоненте `TodoItem` — предотвращает ре-рендер при неизменных props
+- `useCallback` на обработчиках `addTodo`, `toggleTodo`, `deleteTodo` — стабильные ссылки функций
+- `useMemo` на `filteredTodos`, `sortedTodos`, `stats` — пересчёт только при изменении зависимостей
+- `useEffect` для сохранения в `localStorage` с дебаунсом 500мс
